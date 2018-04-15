@@ -139,6 +139,13 @@ u32 menuCombo;
 
 void menuThreadMain(void)
 {
+	mcuHwcInit();
+	u8 result;
+	MCUHWC_ReadRegister(0x18, &result, 1);
+	result |= 0x01;
+	MCUHWC_WriteRegister(0x18, &result, 1);
+	mcuHwcExit();
+	
     if(!isN3DS)
     {
         rosalinaMenu.nbItems--;
@@ -148,8 +155,32 @@ void menuThreadMain(void)
     else
         N3DSMenu_UpdateStatus();
 
+	bool buttonStart = false, buttonStartOld = false;
+	
     while(!terminationRequest)
-    {
+    {		
+		buttonStart = (HID_PAD & BUTTON_START) == BUTTON_START;
+		
+		if(buttonStart && !buttonStartOld) {
+			mcuHwcInit();
+			u8 result;
+			MCUHWC_ReadRegister(0x18, &result, 1);
+			result &= ~0x01;
+			MCUHWC_WriteRegister(0x18, &result, 1);
+			mcuHwcExit();
+		}
+		
+		if(!buttonStart && buttonStartOld) {
+			mcuHwcInit();
+			u8 result;
+			MCUHWC_ReadRegister(0x18, &result, 1);
+			result |= 0x01;
+			MCUHWC_WriteRegister(0x18, &result, 1);
+			mcuHwcExit();
+		}
+		
+		buttonStartOld = buttonStart;
+		
         if((HID_PAD & menuCombo) == menuCombo)
         {
             menuEnter();
