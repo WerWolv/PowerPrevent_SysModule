@@ -6,7 +6,7 @@ endif
 
 include $(DEVKITARM)/3ds_rules
 
-name := $(shell basename $(CURDIR))
+name := rosalina
 
 dir_source := source
 dir_include := include
@@ -39,6 +39,7 @@ clean:
 	@rm -rf $(dir_build)
 
 $(dir_out)/$(name).cxi: $(dir_build)/$(name).elf
+	@mkdir -p "$(@D)"
 	@makerom -f ncch -rsf rosalina.rsf -nocodepadding -o $@ -elf $<
 
 $(dir_build)/$(name).elf: $(objects)
