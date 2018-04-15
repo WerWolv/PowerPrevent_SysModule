@@ -3,7 +3,7 @@
 This project is a modified version of the Luma3DS Rosalina menu SysModules with an added power button safety mechanic.
 To prevent acidental pressing of the power button during gameplay, it is now required to hold the START button while pressing the power button in order to shutdown the console.
 
-All credit goes the to AuroraWright and his team who built the fantastic [Luma3DS](https://github.com/AuroraWright/Luma3DS/) CFW.
+All credit goes the to AuroraWright and her team who built the fantastic [Luma3DS](https://github.com/AuroraWright/Luma3DS/) CFW.
 
 ## Usage
 1. Enable **Enable loading exteral FIRMs and modules** in the Luma3DS configuration menu
