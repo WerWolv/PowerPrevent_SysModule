@@ -7,7 +7,7 @@ All credit goes the to AuroraWright and his team who built the fantastic [Luma3D
 
 ## Usage
 1. Enable **Enable loading exteral FIRMs and modules** in the Luma3DS configuration menu
-2. Download the rosalina.cxi file and put it in the SDHC:/luma/sysmodules/ folder. Don`t rename the file or it won`t be able to load.
+2. Download the rosalina.cxi file and put it in the SDHC:/luma/sysmodules/ folder. Don't rename the file or it won't be able to load.
 3. To shutdown the 3DS now, the START button has to be held down before pressing the power button. Otherwise the button will be completely ignored.
 
 ## Limitations
